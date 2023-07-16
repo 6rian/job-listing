@@ -1,0 +1,18 @@
+.badge {
+  display: flex;
+  width: max-content;
+  background: #5CA5A5;
+  color: #fff;
+  border-radius: 0.75rem;
+  padding: 0.4rem 0.5rem;
+  font-weight: 700;
+  line-height: 0.875rem;
+  font-size: 0.875rem;
+  letter-spacing: -0.00675rem;
+  text-transform: uppercase;
+
+  &--emphasis {
+    background-color: #2B3939;
+  }
+}
+
