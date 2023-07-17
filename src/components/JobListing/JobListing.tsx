@@ -2,7 +2,7 @@ import type { JobListing } from "./types"
 import Badge from "../Badge/Badge"
 import { BadgeKind } from "../Badge/types"
 
-import styles from './JobListing.module.scss'
+import classes from './JobListing.module.scss'
 
 export function JobListing({
   logo,
@@ -16,23 +16,23 @@ export function JobListing({
 }: JobListing) {
 
   const mainClasses: string = [
-    styles.jobListing,
-    featured && styles.jobListingFeatured,
+    classes['job-listing'],
+    featured && classes['job-listing--featured'],
   ].join(' ')
 
   return (
     <div className={mainClasses}>
       <img src={logo} alt={`${company} ${logo}`} />
-      <div className={styles.inner}>
-        <div className={styles.header}>
+      <div className={classes.inner}>
+        <div className={classes.header}>
           <p>{company}</p>
-          <div className={styles.badges}>
+          <div className={classes.badges}>
             {isNew && <Badge type={BadgeKind.New} />}
             {featured && <Badge type={BadgeKind.Featured} />}
           </div>
         </div>
-        <p className={styles.position}>{position}</p>
-        <ul className={styles.meta}>
+        <p className={classes.position}>{position}</p>
+        <ul className={classes.meta}>
           <li>{postedAt}</li>
           <li>{contract}</li>
           <li>{location}</li>
