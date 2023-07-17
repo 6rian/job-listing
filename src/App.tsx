@@ -1,6 +1,6 @@
 import { JobListing } from './components/JobListing/JobListing'
 import type { JobListing as JobListingType } from './components/JobListing/types'
-import './App.scss'
+import styles from './App.module.scss'
 
 import data from '../data/data.json'
 
@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className={styles.app}>
         <p>App</p>
         <ul>
           {listings}
