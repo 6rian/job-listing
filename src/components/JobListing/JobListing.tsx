@@ -14,18 +14,30 @@ export function JobListing({
   contract,
   location,
 }: JobListing) {
+
+  const mainClasses: string = [
+    styles.jobListing,
+    featured && styles.jobListingFeatured,
+  ].join(' ')
+
   return (
-    <div className={styles.jobListing}>
+    <div className={mainClasses}>
       <img src={logo} alt={`${company} ${logo}`} />
-      <p>{company}</p>
-      {isNew && <Badge type={BadgeKind.New} />}
-      {featured && <Badge type={BadgeKind.Featured} />}
-      <p>{position}</p>
-      <ul>
-        <li>{postedAt}</li>
-        <li>{contract}</li>
-        <li>{location}</li>
-      </ul>
+      <div className={styles.inner}>
+        <div className={styles.header}>
+          <p>{company}</p>
+          <div className={styles.badges}>
+            {isNew && <Badge type={BadgeKind.New} />}
+            {featured && <Badge type={BadgeKind.Featured} />}
+          </div>
+        </div>
+        <p className={styles.position}>{position}</p>
+        <ul className={styles.meta}>
+          <li>{postedAt}</li>
+          <li>{contract}</li>
+          <li>{location}</li>
+        </ul>
+      </div>
     </div>
   )
 }

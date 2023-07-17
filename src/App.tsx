@@ -12,7 +12,7 @@ function App() {
     <>
       <div className={styles.app}>
         <p>App</p>
-        <ul>
+        <ul className={styles.list}>
           {listings}
         </ul>
       </div>
