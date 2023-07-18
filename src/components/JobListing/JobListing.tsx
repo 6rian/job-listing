@@ -5,7 +5,7 @@ import { BadgeKind } from '../Badge/types'
 
 import classes from './JobListing.module.scss'
 
-export function JobListing({
+export default function JobListing({
   logo,
   company,
   new: isNew,

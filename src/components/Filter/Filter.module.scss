@@ -1,0 +1,37 @@
+.filter {
+  $this: &;
+  display: flex;
+  flex-wrap: nowrap;
+
+  &:hover {
+    cursor: pointer;
+
+    #{$this}__close {
+      background-color: #2B3939;
+    }
+  }
+
+  &__label {
+    color: #5CA5A5;
+    background-color: rgba(92, 165, 165, .1);
+    font-weight: 700;
+    width: max-content;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: -.00675rem;
+  }
+
+  &__close {
+    background-color: #5CA5A5;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
