@@ -1,12 +1,21 @@
 import Tag from '../Tag/Tag'
+import type { AddFilter } from '../../App'
 import styles from './Tags.module.scss'
 
-export default function Tags({ tags }: { tags: string[] }) {
-  const tagsItems = tags.map((tag) => <li key={tag}><Tag label={tag} /></li>)
-
+export default function Tags({
+  tags,
+  addFilter,
+}: {
+  tags: string[]
+  addFilter: AddFilter
+}) {
   return (
     <ul className={styles.tags}>
-      {tagsItems}
+      {tags.map((tag) => (
+        <li key={tag}>
+          <Tag label={tag} addFilter={addFilter} />
+        </li>
+      ))}
     </ul>
   )
 }

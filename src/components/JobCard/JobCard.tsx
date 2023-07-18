@@ -1,9 +1,14 @@
 import type { Job } from './types'
+import type { AddFilter } from '../../App'
 import Badge from '../Badge/Badge'
 import Tags from '../Tags/Tags'
 import { BadgeKind } from '../Badge/types'
 
 import classes from './JobCard.module.scss'
+
+type Props = Job & {
+  addFilter: AddFilter
+}
 
 export default function JobCard({
   logo,
@@ -18,7 +23,8 @@ export default function JobCard({
   level,
   languages,
   tools,
-}: Job) {
+  addFilter
+}: Props) {
 
   const mainClasses: string = [
     classes['job-listing'],
@@ -44,7 +50,7 @@ export default function JobCard({
             <li>{location}</li>
           </ul>
         </div>
-        <Tags tags={[...languages, ...tools, role, level]} />
+        <Tags tags={[...languages, ...tools, role, level]} addFilter={addFilter} />
       </div>
     </div>
   )
