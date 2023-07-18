@@ -1,11 +1,11 @@
-import type { JobListing } from './types'
+import type { Job } from './types'
 import Badge from '../Badge/Badge'
 import Tags from '../Tags/Tags'
 import { BadgeKind } from '../Badge/types'
 
-import classes from './JobListing.module.scss'
+import classes from './JobCard.module.scss'
 
-export default function JobListing({
+export default function JobCard({
   logo,
   company,
   new: isNew,
@@ -18,7 +18,7 @@ export default function JobListing({
   level,
   languages,
   tools,
-}: JobListing) {
+}: Job) {
 
   const mainClasses: string = [
     classes['job-listing'],
