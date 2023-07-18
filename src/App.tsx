@@ -39,14 +39,16 @@ function App() {
     <>
       <div className={styles.app}>
         <header />
-        {filters.length > 0 ? (
-          <>
-            <Filters filters={filters} removeFilter={removeFilter} clear={clear} />
-            <JobList jobs={filterJobs(jobs)} addFilter={addFilter} />
-          </>
-        ) : (
-          <JobList jobs={jobs} addFilter={addFilter} />
-        )}
+        <main className="container">
+          {filters.length > 0 ? (
+            <>
+              <Filters filters={filters} removeFilter={removeFilter} clear={clear} />
+              <JobList jobs={filterJobs(jobs)} addFilter={addFilter} />
+            </>
+          ) : (
+            <JobList jobs={jobs} addFilter={addFilter} />
+          )}
+        </main>
       </div>
     </>
   )
