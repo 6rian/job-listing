@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <div className={styles.app}>
-        <p>App</p>
+        <header />
         <ul className={styles.list}>
           {listings}
         </ul>

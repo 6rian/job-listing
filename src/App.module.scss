@@ -1,7 +1,15 @@
+.app {
+  header {
+    background-image: url('./assets/bg-header-mobile.svg');
+    background-color: #5CA5A5;
+    height: 9.75rem;
+  }
+}
+
 .list {
   display: flex;
   flex-direction: column;
   gap: 3rem;
   padding: 0;
-  margin: 1.5rem;
+  margin: 3.5rem 1.5rem;
 }
