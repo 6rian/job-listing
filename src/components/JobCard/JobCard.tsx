@@ -3,28 +3,28 @@ import type { AddFilter } from '../../App'
 import Badge from '../Badge/Badge'
 import Tags from '../Tags/Tags'
 import { BadgeKind } from '../Badge/types'
+import { getFilterableFields } from '../../helpers'
 
 import classes from './JobCard.module.scss'
 
-type Props = Job & {
-  addFilter: AddFilter
-}
-
 export default function JobCard({
-  logo,
-  company,
-  new: isNew,
-  featured,
-  position,
-  postedAt,
-  contract,
-  location,
-  role,
-  level,
-  languages,
-  tools,
+  job,
   addFilter
-}: Props) {
+}: {
+  job: Job
+  addFilter: AddFilter
+}) {
+
+  const {
+    featured,
+    new: isNew,
+    postedAt,
+    contract,
+    location,
+    company,
+    position,
+    logo,
+  } = job
 
   const mainClasses: string = [
     classes['job-listing'],
@@ -50,7 +50,7 @@ export default function JobCard({
             <li>{location}</li>
           </ul>
         </div>
-        <Tags tags={[...languages, ...tools, role, level]} addFilter={addFilter} />
+        <Tags tags={getFilterableFields(job)} addFilter={addFilter} />
       </div>
     </div>
   )

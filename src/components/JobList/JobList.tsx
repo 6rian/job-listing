@@ -14,7 +14,7 @@ export default function JobList({
     <ul className={styles['job-list']}>
       {jobs.map((job) => (
         <li key={job.id}>
-          <JobCard {...job} addFilter={addFilter} />
+          <JobCard job={job} addFilter={addFilter} />
         </li>
       ))}
     </ul>

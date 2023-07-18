@@ -3,6 +3,8 @@ import Filters from './components/Filters/Filters'
 import JobList from './components/JobList/JobList'
 import styles from './App.module.scss'
 import jobs from '../data/data.json'
+import type { Job } from './components/JobCard/types'
+import { getFilterableFields, matchesFilters } from './helpers'
 
 export type AddFilter = (filter: string) => void
 
@@ -19,12 +21,27 @@ function App() {
     }
   }
 
+  const filterJobs = (jobs: Job[]): Job[] => {
+    return jobs.filter(job => {
+      const possibleFilters = getFilterableFields(job)
+      if (matchesFilters(possibleFilters, filters)) {
+        return job
+      }
+    })
+  }
+
   return (
     <>
       <div className={styles.app}>
         <header />
-        {filters.length > 0 && <Filters filters={filters} clear={clear} />}
-        <JobList jobs={jobs} addFilter={addFilter} />
+        {filters.length > 0 ? (
+          <>
+            <Filters filters={filters} clear={clear} />
+            <JobList jobs={filterJobs(jobs)} addFilter={addFilter} />
+          </>
+        ) : (
+          <JobList jobs={jobs} addFilter={addFilter} />
+        )}
       </div>
     </>
   )
