@@ -6,7 +6,7 @@ import data from '../data/data.json'
 
 function App() {
 
-  const listings = (data as JobListingType[]).map(l => <JobListing {...l} />)
+  const listings = (data as JobListingType[]).map(l => <JobListing key={l.id} {...l} />)
 
   return (
     <>

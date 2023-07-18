@@ -1,12 +1,14 @@
 import type { Badge } from './types'
 import { BadgeKind } from './types'
 
-import './Badge.scss'
+import styles from './Badge.module.scss'
 
 export default function Badge({ type }: Badge) {
-
   return (
-    <div className={`badge ${type === BadgeKind.Featured && 'badge--emphasis'}`}>
+    <div className={[
+      styles.badge,
+      type === BadgeKind.Featured && styles['badge--emphasis']
+    ].join(' ')}>
       {type === BadgeKind.New && 'NEW!'}
       {type === BadgeKind.Featured && 'FEATURED'}
     </div>
