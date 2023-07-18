@@ -7,6 +7,7 @@ import type { Job } from './components/JobCard/types'
 import { getFilterableFields, matchesFilters } from './helpers'
 
 export type AddFilter = (filter: string) => void
+export type RemoveFilter = (filter: string) => void
 
 function App() {
   const [filters, setFilters] = useState<string[]>([])
@@ -19,6 +20,10 @@ function App() {
     if (!filters.includes(filter)) {
       setFilters([...filters, filter])
     }
+  }
+
+  const removeFilter = (filter: string): void => {
+    setFilters(filters.filter(f => f !== filter))
   }
 
   const filterJobs = (jobs: Job[]): Job[] => {
@@ -36,7 +41,7 @@ function App() {
         <header />
         {filters.length > 0 ? (
           <>
-            <Filters filters={filters} clear={clear} />
+            <Filters filters={filters} removeFilter={removeFilter} clear={clear} />
             <JobList jobs={filterJobs(jobs)} addFilter={addFilter} />
           </>
         ) : (
