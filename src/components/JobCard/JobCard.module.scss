@@ -1,12 +1,27 @@
-.job-listing {
+@import '../../styles/common';
+
+.job-card {
   border-radius: 0.3125rem;
   background: #FFF;
   box-shadow: 0px 15px 20px -5px rgba(13, 113, 130, 0.15);
+
+  @include desktop {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 2rem 2.5rem;
+  }
   
   & > img {
     width: 3rem;
     height: 3rem;
     margin: -1.5rem 0 0.5rem 1.5rem;
+
+    @include desktop {
+      width: 5.5rem;
+      height: 5.5rem;
+      margin: 0;
+    }
   }
 
   &--featured {
@@ -16,6 +31,14 @@
 
 .inner {
   padding: 0 1.5rem 1.5rem 1.5rem;
+  flex-grow: 1;
+
+  @include desktop {
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+  }
 }
 
 .details {
@@ -23,6 +46,10 @@
   flex-direction: column;
   gap: 0.5625rem;
   margin-bottom: 1rem;
+
+  @include desktop {
+    margin: 0;
+  }
 }
 
 .header {
@@ -36,6 +63,10 @@
   color: #5CA5A5;
   font-weight: 700;
   font-size: 0.8125rem;
+
+  @include desktop {
+    font-size: 1.125rem;
+  }
 }
 
 .badges {
@@ -48,18 +79,31 @@
   line-height: 1.5rem;
   font-weight: 700;
   color: #2B3939;
+
+  &:hover {
+    color: #5CA5A5;
+    cursor: pointer;
+  }
+
+  @include desktop {
+    font-size: 1.375rem;
+  }
 }
 
 ul.meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 1rem;
 
   li {
     font-weight: 500;
     font-size: 1rem;
     line-height: 1.5rem;
     color: #7C8F8F;
+
+    @include desktop {
+      font-size: 1.125rem;
+    }
 
     &::after {
       color: #B7C4C4;

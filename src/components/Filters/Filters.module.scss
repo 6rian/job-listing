@@ -24,5 +24,11 @@
     font-size: 1rem;
     line-height: 1.5rem;
     letter-spacing: -.00675rem;
+
+    &:hover {
+      cursor: pointer;
+      color: #5CA5A5;
+      text-decoration: underline;
+    }
   }
 }

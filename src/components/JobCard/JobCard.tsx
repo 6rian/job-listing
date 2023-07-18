@@ -27,8 +27,8 @@ export default function JobCard({
   } = job
 
   const mainClasses: string = [
-    classes['job-listing'],
-    featured && classes['job-listing--featured'],
+    classes['job-card'],
+    featured && classes['job-card--featured'],
   ].join(' ')
 
   return (

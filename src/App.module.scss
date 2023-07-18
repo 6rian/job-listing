@@ -1,8 +1,14 @@
+@import 'styles/common';
+
 .app {
   header {
     background-image: url('./assets/bg-header-mobile.svg');
     background-color: #5CA5A5;
     height: 9.75rem;
+
+    @include desktop {
+      background-image: url('./assets/bg-header-desktop.svg');
+    }
   }
 }
 
